@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +7,7 @@
     <!--
     window.addEventListener('load', function () {
     
-        // canvas������Ʈ ã��
+        // canvas 엘리먼트 찾기
         var canvas = document.getElementById('myCanvas'),
         w = 4,
         h = 4,
@@ -19,7 +18,7 @@
             return;
         }
         
-        // canvas 2d context ��������.
+        // canvas 2d context 가져오기.
         var ctx = canvas.getContext('2d');
         if (!ctx) {
             return;
@@ -28,7 +27,7 @@
         var K = 4*((Math.SQRT2-1)/3);
 
 
-        //����,�ܾƿ�ó��
+        //줌인, 줌아웃 처리
         setInterval(function () {
             if (step == 'zoomin') {
                 w += zoompx;
@@ -55,7 +54,7 @@
             }
     
     
-            // radial gradient ����: x0, y0, r0, x1, y1, r1.
+            // radial gradient 생성: x0, y0, r0, x1, y1, r1.
             // That's the start circle (x0,y0) coordinates and r0 radius,
             // followed by the end circle (x1,y1) coordinates and r1 radius.
             var gradient = ctx.createRadialGradient(
@@ -66,7 +65,7 @@
             gradient.addColorStop(0, "#ff0");
             gradient.addColorStop(1, "#0f0");
         
-            // �׶���Ʈ �Ӽ� ������
+            // 그라디언트 속성 입히기
             ctx.fillStyle = gradient;
         
             // Ellipse radius and center.
@@ -104,6 +103,6 @@
 </script>
 </head>
 <body>
-    <canvas id="myCanvas" width="320" height="320">����� �������� Canvas�� �������� �ʽ��ϴ�.</canvas>
+    <canvas id="myCanvas" width="320" height="320">당신의 브라우저는 canvas를 지원하지 않는대요</canvas>
 </body>
 </html>
