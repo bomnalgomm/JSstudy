@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스크롤시 해당영역 위치하면 fixed</title>
+  <script src="http://popstat.hygn.iacts.co.kr/_res/popstat/share/js/jquery-1.12.4.min.js"></script>
+  <style type="text/css">
+	body {margin:0;padding:0}
+	[id*="mainbody"] {position:relative;background:#ccc;}
+	[id*="mainbody"]:nth-child(even) {background:#fff}
+	#mainbody3 .left {position:absolute;top:0;left:0;width:30%;height:400px;background:skyblue;}
+	#mainbody3.on .left {position:fixed;}
+	#mainbody3 .right {width:70%;height:2000px;margin-left:30%;background-image:linear-gradient(to bottom,#808000, #fff)}
+  </style>
+</head>
+
+<body>
+	<div id="body">
+		<div id="mainbody1"></div>
+		<div id="mainbody2"></div>
+		<div id="mainbody3">
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div id="mainbody4"></div>
+	</div>
+
+	<script>
+		$(function(){
+			$(window).on("load resize scroll", function(){
+				var winH = $(window).height(), 
+					$mainbody = $('[id*="mainbody"]');
+				$mainbody.css('min-height',winH);
+				$mainbody.each(function(){
+					var $this = $(this),					
+					nowScrollTop = $(window).scrollTop();
+					mainscrollTop = $this.offset().top,
+					mainScroll = mainscrollTop * .98;
+					if(nowScrollTop > mainScroll){						
+						$mainbody.removeClass("on");
+						$this.addClass("on");
+					}
+					console.log(nowScrollTop, mainScroll);
+				});
+			});
+		});
+	</script>
+</body>
+</html>
