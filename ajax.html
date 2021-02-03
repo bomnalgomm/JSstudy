@@ -8,13 +8,16 @@
 <body>
 	<h2 class="h1">Boom</h2>
 	<button type="button" class="b1 ajax">버튼</button>
+
+	<h3>로드 json</h3>
+	<table></table>
 	
 	<script>
 		$(function(){
 			$(".b1.ajax").on("click", function(){
 				$.ajax({
-					url : "ajax.jsp",				
-					dataType : "json",
+					url : "ajax.jsp", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+					dataType : "json", // 서버에서 보내줄 데이터의 타입
 					success:function(data){
 						$("table").html("<tr><th>번호</th><th>이름</th><th>나이</th><th>사는곳</th></tr>");
 						var show = "";
@@ -33,9 +36,6 @@
 			});
 		});
 	</script>
-
-	<h3>로드 json</h3>
-	<table></table>
 
 </body>
 </html>
