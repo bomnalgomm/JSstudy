@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas animation example..</title>
+    <script src="./share/js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<h2 class="h1">Boom</h2>
+	<button type="button" class="b1 ajax">버튼</button>
+	
+	<script>
+		$(function(){
+			$(".b1.ajax").on("click", function(){
+				$.ajax({
+					url : "ajax.jsp",				
+					dataType : "json",
+					success:function(data){
+						$("table").html("<tr><th>번호</th><th>이름</th><th>나이</th><th>사는곳</th></tr>");
+						var show = "";
+
+						$.each(data, function(index, item){
+							show += "<tr><td>"+(index+1)+"</td>";
+							show += "<td>"+item.name+"</td>";
+							show += "<td>"+item.age+"</td>";
+							show += "<td>"+item.loc+"</td></tr>";
+
+						});
+
+						$("table").append(show);
+					}
+				});
+			});
+		});
+	</script>
+
+	<h3>로드 json</h3>
+	<table></table>
+
+</body>
+</html>

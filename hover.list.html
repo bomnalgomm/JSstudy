@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>아코디언 메뉴</title>
+    <style type="text/css">
+    	body {margin:0;}
+    	#acard1 {position:relative;}
+    	#acard1 ul {overflow:hidden;list-style:none;padding:0;margin:0;height:300px;}
+    	#acard1 ul li {position:relative;float:left;width:calc(25% - 1.333%);margin-left:2%;height:100%;transition:width .3s ease;}
+    	#acard1 ul li:first-child {margin-left:0;}
+    	#acard1 ul li.on {width:calc(50% - 1.333%);}
+    	#acard1 ul li .b1 {position:absolute;top:0;left:0;width:100%;height:100%;border:0;z-index:1;cursor:pointer;}
+    	#acard1 ul li.on .b1 {z-index:-1;}
+    	#acard1 ul li a {display:block;width:100%;height:100%;background:#eee;}
+    </style>
+    <script src="./share/js/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+  		<div id="acard1">
+  			<ul>
+  				<li class="on">
+  					<button type="button" class="b1">버튼</button>
+  					<a href="http://www.iacts.co.kr" target="_blank" title="새창열림">1
+  						<!-- <strong class="h1">
+  							<span class="e1">OPTOELECTRONIC MATERIALS</span>
+  							<span class="k1">광전자 소재</span>
+  						</strong>
+  						<p class="t1">컴퓨터, 스마트폰 등 제품의 첨단화를 실현하여 편리하고 풍요로운 삶을 실현합니다.</p>
+  						<span class="b1 more">자세히보기</span> -->
+  					</a>
+  				</li>
+  				<li>
+  					<button type="button" class="b1">버튼</button>
+  					<a href="#?">2
+  						<!-- <strong class="h1">
+  							<span class="e1">ENERGY ENVIRONMENT MATERIALS</span>
+  							<span class="k1">에너지환경 소재</span>
+  						</strong>
+  						<p class="t1">버려지는 에너지를 유용한 에너지로 바꿀수 있는 세라믹기술을 통해 자연친화적 사회를 만들어갑니다.</p>
+  						<span class="b1 more">자세히보기</span> -->
+  					</a>
+  				</li>
+  				<li>
+  					<button type="button" class="b1">버튼</button>
+  					<a href="#?">3
+  						<!-- <strong class="h1">
+  							<span class="e1">ENERGY ENVIRONMENT MATERIALS2</span>
+  							<span class="k1">에너지환경 소재2</span>
+  						</strong>
+  						<p class="t1">버려지는 에너지를 유용한 에너지로 바꿀수 있는 세라믹기술을 통해 자연친화적 사회를 만들어갑니다.</p>
+  						<span class="b1 more">자세히보기</span> -->
+  					</a>
+  				</li>
+  			</ul>
+  		</div>
+
+
+    <script>
+    	$(function(){
+    		var accordianObj = $("#acard1 li"),
+    			accordBtn = $(".b1", accordianObj);
+    		accordBtn.on("click", function(){
+    			var this_s = $(this);
+    			if(accordianObj.parent().hasClass("on")) {
+    				this_s.text("닫기");
+
+    			} else {
+    				accordianObj.removeClass("on");
+    				this_s.parent().addClass("on");
+    				this_s.text("펼치기");
+    			}
+    		});
+    		
+    	});
+    </script>
+  </body> 
+  </html> 
